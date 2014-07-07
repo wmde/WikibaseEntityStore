@@ -1,0 +1,17 @@
+{
+	"name": "wikibase/entity-store",
+	"require": {
+		"php": ">=5.5.0",
+		"wikibase/wikibase": "dev-master"
+	},
+	"autoload": {
+		"psr-4": {
+			"Wikibase\\EntityStore\\": "src/"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "0.1.x-dev"
+		}
+	}
+}
