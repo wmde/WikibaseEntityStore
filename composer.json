@@ -1,8 +1,14 @@
 {
 	"name": "wikibase/entity-store",
+	"type": "library",
+	"keywords": [
+		"Wikibase",
+		"Wikidata"
+	],
 	"require": {
 		"php": ">=5.5.0",
-		"wikibase/wikibase": "dev-master"
+		"wikibase/wikibase": "dev-master",
+		"jeroen-de-dauw/batching-iterator": "~1.0"
 	},
 	"autoload": {
 		"psr-4": {
