@@ -23,7 +23,7 @@ class BatchingEntityFetcher implements BatchingFetcher {
 	/**
 	 * @param BatchingFetcher $entityIdFetcher
 	 * @param EntityLookup $entityLookup
-	 * @param callable|null $onEntitySkipped
+	 * @param callable|null $onEntitySkipped with two parameters, EntityId $entityId and string $reasonMessage
 	 */
 	public function __construct( BatchingFetcher $entityIdFetcher, EntityLookup $entityLookup, $onEntitySkipped = null ) {
 		$this->entityIdFetcher = $entityIdFetcher;
