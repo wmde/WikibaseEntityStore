@@ -1,6 +1,8 @@
 # Wikibase EntityStore
 
 [![Build Status](https://secure.travis-ci.org/wmde/WikibaseEntityStore.png?branch=master)](http://travis-ci.org/wmde/WikibaseEntityStore)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/wmde/WikibaseEntityStore/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/wmde/WikibaseEntityStore/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/wmde/WikibaseEntityStore/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/wmde/WikibaseEntityStore/?branch=master)
 
 On [Packagist](https://packagist.org/packages/wikibase/entity-store):
 [![Latest Stable Version](https://poser.pugx.org/wikibase/entity-store/version.png)](https://packagist.org/packages/wikibase/entity-store)
