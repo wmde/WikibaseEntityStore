@@ -6,7 +6,7 @@
 		"Wikidata"
 	],
 	"require": {
-		"php": ">=5.5.0",
+		"php": ">=5.3.2",
 		"wikibase/wikibase": "dev-master",
 		"jeroen-de-dauw/batching-iterator": "~1.0"
 	},
