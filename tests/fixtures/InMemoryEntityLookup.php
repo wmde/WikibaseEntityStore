@@ -2,11 +2,8 @@
 
 namespace Wikibase\EntityStore\Tests\Fixtures;
 
-use BatchingIterator\InMemoryBatchingFetcher;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\EntityId;
-use Wikibase\DataModel\Entity\ItemId;
-use Wikibase\EntityStore\BatchingEntityFetcher;
 use Wikibase\Lib\Store\EntityLookup;
 use Wikibase\StorageException;
 

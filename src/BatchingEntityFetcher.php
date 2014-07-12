@@ -3,7 +3,6 @@
 namespace Wikibase\EntityStore;
 
 use BatchingIterator\BatchingFetcher;
-use Exception;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\Lib\Store\EntityLookup;
