@@ -8,7 +8,7 @@ cd ../phase3/tests/phpunit
 
 if [ "$TYPE" == "coverage" ]
 then
-	php phpunit.php --group WikibaseEntityStore -c ../../extensions/WikibaseEntityStore/ --coverage-clover $originalDirectory/build/coverage.clover
+	php phpunit.php -c ../../extensions/WikibaseEntityStore/ --coverage-clover $originalDirectory/build/coverage.clover
 else
-	php phpunit.php --group WikibaseEntityStore -c ../../extensions/WikibaseEntityStore/
+	php phpunit.php -c ../../extensions/WikibaseEntityStore/
 fi
