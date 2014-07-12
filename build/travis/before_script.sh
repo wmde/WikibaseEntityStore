@@ -33,6 +33,8 @@ composer require 'phpunit/phpunit=3.7.*' --prefer-source
 
 cd ../..
 
+echo 'require_once( __DIR__ . "/extensions/WikibaseEntityStore/vendor/autoload.php" );' >> LocalSettings.php
+
 echo 'error_reporting(E_ALL| E_STRICT);' >> LocalSettings.php
 echo 'ini_set("display_errors", 1);' >> LocalSettings.php
 echo '$wgShowExceptionDetails = true;' >> LocalSettings.php
