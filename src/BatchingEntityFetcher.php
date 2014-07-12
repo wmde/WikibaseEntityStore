@@ -6,7 +6,7 @@ use BatchingIterator\BatchingFetcher;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\Lib\Store\EntityLookup;
-use Wikibase\StorageException;
+use Wikibase\Lib\Store\StorageException;
 
 /**
  * @since 0.1

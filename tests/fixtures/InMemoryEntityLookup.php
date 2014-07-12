@@ -5,7 +5,7 @@ namespace Wikibase\EntityStore\Tests\Fixtures;
 use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\Lib\Store\EntityLookup;
-use Wikibase\StorageException;
+use Wikibase\Lib\Store\StorageException;
 
 /**
  * @licence GNU GPL v2+
