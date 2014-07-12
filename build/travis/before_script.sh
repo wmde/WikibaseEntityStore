@@ -27,7 +27,7 @@ cd extensions
 
 cp -r $originalDirectory WikibaseEntityStore
 
-cd EntityStore
+cd WikibaseEntityStore
 composer install --prefer-source
 composer require 'phpunit/phpunit=3.7.*' --prefer-source
 
