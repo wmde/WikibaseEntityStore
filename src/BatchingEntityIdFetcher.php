@@ -16,6 +16,8 @@ class BatchingEntityIdFetcher implements BatchingFetcher {
 
 	private $entityPerPageTable;
 	private $entityType;
+	private $initialPreviousId;
+
 	private $previousId;
 
 	/**
@@ -26,7 +28,8 @@ class BatchingEntityIdFetcher implements BatchingFetcher {
 	public function __construct( EntityPerPage $entityPerPageTable, $entityType, EntityId $previousId = null ) {
 		$this->entityPerPageTable = $entityPerPageTable;
 		$this->entityType = $entityType;
-		$this->previousId = $previousId;
+		$this->initialPreviousId = $previousId;
+		$this->rewind();
 	}
 
 	/**
@@ -43,14 +46,17 @@ class BatchingEntityIdFetcher implements BatchingFetcher {
 			$this->previousId
 		);
 
-		$this->previousId = $this->getLastElement( $ids );
+		$this->previousId = end( $ids );
+		reset( $ids );
 
 		return $ids;
 	}
 
-	private function getLastElement( array $array ) {
-		end( $array );
-		return current( $array );
+	/**
+	 * @see BatchingFetcher::rewind
+	 */
+	public function rewind() {
+		$this->previousId = $this->initialPreviousId;
 	}
 
 }

@@ -93,4 +93,19 @@ class BatchingEntityFetcherTest extends \MediaWikiTestCase {
 		$this->assertEquals( $expectedIds, $actualIds );
 	}
 
+	public function testRewindSetsThePositionBackToTheInitialValue() {
+		$fetcher = $this->getFetcherThatContinuesFrom( new ItemId( 'Q1000070' ) );
+
+		$fetcher->fetchNext( 5 );
+		$fetcher->rewind();
+
+		$this->assertAreItemsWithIds(
+			array(
+				new ItemId( 'Q1000071' ),
+				new ItemId( 'Q1000072' ),
+			),
+			$fetcher->fetchNext( 2 )
+		);
+	}
+
 }

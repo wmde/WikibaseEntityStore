@@ -2,7 +2,7 @@
 
 namespace Wikibase\EntityStore\Tests;
 
-use BatchingIterator\InMemoryBatchingFetcher;
+use BatchingIterator\Fetchers\InMemoryBatchingFetcher;
 use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
