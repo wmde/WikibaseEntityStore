@@ -3,7 +3,10 @@
 	"type": "library",
 	"keywords": [
 		"Wikibase",
-		"Wikidata"
+		"Wikidata",
+		"entity store",
+		"item store",
+		"property store"
 	],
 	"require": {
 		"php": ">=5.3.2",
