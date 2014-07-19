@@ -19,6 +19,8 @@ install and running
 
 ## Release notes
 
+### Version 0.2 (dev)
+
 ### Version 0.1 (2014-07-18)
 
 * Initial release with

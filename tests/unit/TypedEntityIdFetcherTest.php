@@ -3,15 +3,15 @@
 namespace Wikibase\EntityStore\Tests;
 
 use Wikibase\DataModel\Entity\ItemId;
-use Wikibase\EntityStore\BatchingEntityIdFetcher;
+use Wikibase\EntityStore\TypedEntityIdFetcher;
 
 /**
- * @covers Wikibase\EntityStore\BatchingEntityIdFetcher
+ * @covers Wikibase\EntityStore\TypedEntityIdFetcher
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class BatchingEntityIdFetcherTest extends \PHPUnit_Framework_TestCase {
+class TypedEntityIdFetcherTest extends \PHPUnit_Framework_TestCase {
 
 	public function testEntityPerPageIsCalledAndResultIsReturned() {
 		$entityType = 'kittens';
@@ -35,7 +35,7 @@ class BatchingEntityIdFetcherTest extends \PHPUnit_Framework_TestCase {
 			)
 			->will( $this->returnValue( $expectedReturnValue ) );
 
-		$idFetcher = new BatchingEntityIdFetcher(
+		$idFetcher = new TypedEntityIdFetcher(
 			$entityPerPageTable,
 			$entityType,
 			$entityId

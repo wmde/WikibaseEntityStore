@@ -3,19 +3,20 @@
 namespace Wikibase\EntityStore;
 
 use BatchingIterator\BatchingFetcher;
-use Wikibase\DataModel\Entity\Entity;
 use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\EntityPerPage;
 
 /**
- * @since 0.1
+ * @since 0.2
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class BatchingEntityIdFetcher implements BatchingFetcher {
+class TypedEntityIdFetcher implements BatchingFetcher {
 
 	private $entityPerPageTable;
 	private $entityType;
+	private $initialPreviousId;
+
 	private $previousId;
 
 	/**
@@ -26,7 +27,8 @@ class BatchingEntityIdFetcher implements BatchingFetcher {
 	public function __construct( EntityPerPage $entityPerPageTable, $entityType, EntityId $previousId = null ) {
 		$this->entityPerPageTable = $entityPerPageTable;
 		$this->entityType = $entityType;
-		$this->previousId = $previousId;
+		$this->initialPreviousId = $previousId;
+		$this->rewind();
 	}
 
 	/**
@@ -34,7 +36,7 @@ class BatchingEntityIdFetcher implements BatchingFetcher {
 	 *
 	 * @param int $maxFetchCount
 	 *
-	 * @return Entity[]
+	 * @return EntityId[]
 	 */
 	public function fetchNext( $maxFetchCount ) {
 		$ids = $this->entityPerPageTable->listEntities(
@@ -43,14 +45,17 @@ class BatchingEntityIdFetcher implements BatchingFetcher {
 			$this->previousId
 		);
 
-		$this->previousId = $this->getLastElement( $ids );
+		$this->previousId = end( $ids );
+		reset( $ids );
 
 		return $ids;
 	}
 
-	private function getLastElement( array $array ) {
-		end( $array );
-		return current( $array );
+	/**
+	 * @see BatchingFetcher::rewind
+	 */
+	public function rewind() {
+		$this->previousId = $this->initialPreviousId;
 	}
 
 }

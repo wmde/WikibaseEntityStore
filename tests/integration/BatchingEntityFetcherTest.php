@@ -6,7 +6,7 @@ use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
 use Wikibase\EntityStore\BatchingEntityFetcher;
-use Wikibase\EntityStore\BatchingEntityIdFetcher;
+use Wikibase\EntityStore\BatchingEntityIdFetcherBuilder;
 use Wikibase\Repo\WikibaseRepo;
 
 /**
@@ -38,14 +38,13 @@ class BatchingEntityFetcherTest extends \MediaWikiTestCase {
 	private function getFetcherThatContinuesFrom( EntityId $previousId = null ) {
 		$repo = WikibaseRepo::getDefaultInstance();
 
-		$entityIdFetcher = new BatchingEntityIdFetcher(
+		$fetcherBuilder = new BatchingEntityIdFetcherBuilder(
 			$repo->getStore()->newEntityPerPage(),
-			'item',
 			$previousId
 		);
 
 		return new BatchingEntityFetcher(
-			$entityIdFetcher,
+			$fetcherBuilder->getFetcher(),
 			$repo->getEntityLookup()
 		);
 	}
@@ -91,6 +90,21 @@ class BatchingEntityFetcherTest extends \MediaWikiTestCase {
 		}
 
 		$this->assertEquals( $expectedIds, $actualIds );
+	}
+
+	public function testRewindSetsThePositionBackToTheInitialValue() {
+		$fetcher = $this->getFetcherThatContinuesFrom( new ItemId( 'Q1000070' ) );
+
+		$fetcher->fetchNext( 5 );
+		$fetcher->rewind();
+
+		$this->assertAreItemsWithIds(
+			array(
+				new ItemId( 'Q1000071' ),
+				new ItemId( 'Q1000072' ),
+			),
+			$fetcher->fetchNext( 2 )
+		);
 	}
 
 }

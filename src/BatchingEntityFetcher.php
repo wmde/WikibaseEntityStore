@@ -83,4 +83,11 @@ class BatchingEntityFetcher implements BatchingFetcher {
 		}
 	}
 
+	/**
+	 * @see BatchingFetcher::rewind
+	 */
+	public function rewind() {
+		$this->entityIdFetcher->rewind();
+	}
+
 }
