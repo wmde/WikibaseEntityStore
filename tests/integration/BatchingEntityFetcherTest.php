@@ -6,7 +6,7 @@ use Wikibase\DataModel\Entity\EntityId;
 use Wikibase\DataModel\Entity\Item;
 use Wikibase\DataModel\Entity\ItemId;
 use Wikibase\EntityStore\BatchingEntityFetcher;
-use Wikibase\EntityStore\BatchingEntityIdFetcher;
+use Wikibase\EntityStore\BatchingEntityIdFetcherBuilder;
 use Wikibase\Repo\WikibaseRepo;
 
 /**
@@ -38,14 +38,13 @@ class BatchingEntityFetcherTest extends \MediaWikiTestCase {
 	private function getFetcherThatContinuesFrom( EntityId $previousId = null ) {
 		$repo = WikibaseRepo::getDefaultInstance();
 
-		$entityIdFetcher = new BatchingEntityIdFetcher(
+		$fetcherBuilder = new BatchingEntityIdFetcherBuilder(
 			$repo->getStore()->newEntityPerPage(),
-			'item',
 			$previousId
 		);
 
 		return new BatchingEntityFetcher(
-			$entityIdFetcher,
+			$fetcherBuilder->getFetcher(),
 			$repo->getEntityLookup()
 		);
 	}
