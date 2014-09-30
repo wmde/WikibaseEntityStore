@@ -4,7 +4,7 @@ namespace Wikibase\EntityStore;
 
 use BatchingIterator\BatchingFetcher;
 use Wikibase\DataModel\Entity\EntityId;
-use Wikibase\EntityPerPage;
+use Wikibase\Repo\Store\EntityPerPage;
 
 /**
  * @since 0.2
