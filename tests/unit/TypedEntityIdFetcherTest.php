@@ -24,7 +24,7 @@ class TypedEntityIdFetcherTest extends \PHPUnit_Framework_TestCase {
 			new ItemId( 'Q45' ),
 		);
 
-		$entityPerPageTable = $this->getMock( 'Wikibase\EntityPerPage' );
+		$entityPerPageTable = $this->getMock( 'Wikibase\Repo\Store\EntityPerPage' );
 
 		$entityPerPageTable->expects( $this->once() )
 			->method( 'listEntities' )
