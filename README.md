@@ -21,6 +21,10 @@ install and running
 
 ### Version 0.2 (dev)
 
+* made compatible with the latest version of Wikibase.git
+* Added `BatchingEntityIdFetcherBuilder`
+* Added rewinding support to `BatchingEntityFetcher` and `BatchingEntityIdFetcher`
+
 ### Version 0.1 (2014-07-18)
 
 * Initial release with
