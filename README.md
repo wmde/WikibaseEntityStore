@@ -19,7 +19,7 @@ install and running
 
 ## Release notes
 
-### Version 0.2 (dev)
+### Version 0.2 (2014-09-30)
 
 * made compatible with the latest version of Wikibase.git
 * Added `BatchingEntityIdFetcherBuilder`
